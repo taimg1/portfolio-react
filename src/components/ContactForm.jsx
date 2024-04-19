@@ -29,7 +29,7 @@ export const ContactForm = () => {
 
     }
     return (
-        <div className="max-w-lg mx-auto bg-gray-900 mt-7 rounded-lg">
+        <div id="contact" className="max-w-lg mx-auto bg-gray-900 mt-7 rounded-lg">
             <h1 className="text-center text-2xl text-gray-400">Contact us</h1>
             <Formik
                 initialValues={{

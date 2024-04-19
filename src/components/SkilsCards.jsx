@@ -25,9 +25,9 @@ export const SkillCards = () =>{
         {name: "MariaDB"},
     ]
     return(
-        <div id="skills" className="flex flex-col mx-32 items-center flex-wrap  shadown rounded-lg mt-8">
+        <div id="skills" className="flex flex-col lg:mx-32 items-center justify-center  flex-wrap  shadown rounded-lg mt-8">
             <h1 className="text-4xl text-white">Skills</h1>
-            <div className="flex justify-around">
+            <div className="flex lg:flex-row flex-col justify-around">
                 <SkillCard list={web} name="Web"/>
                 <SkillCard list={languages} name="Languages"/>
                 <SkillCard list={databases} name="Databases"/>
@@ -39,7 +39,7 @@ export const SkillCards = () =>{
 
 const SkillCard = ({list, name}) => {
     return (
-        <p
+        <div
             className="block max-w-sm m-6 p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
             <h5 className="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{name}</h5>
             <ul className="pl-6">
@@ -49,8 +49,6 @@ const SkillCard = ({list, name}) => {
                     </li>
                 ))}
             </ul>
-
-
-        </p>
+        </div>
     )
 }

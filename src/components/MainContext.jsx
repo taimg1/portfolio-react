@@ -9,16 +9,16 @@ export const MainContext = () => {
 
     ]
     return(
-        <div className="flex mx-32 bg-white shadown rounded-lg mt-10">
-            <div className="flex justify-center p-8 pt-10 ">
-                    <img src={require(".//assets/photo.jpg")} alt="programming" className="w-[620px] h-[690px] rounded-lg pr-24 "/>
-                <div className="pt-24 pr-64">
-                    <section className="mb-3">
+        <div className="flex xl:mx-32 bg-white shadown rounded-lg lg:mt-10 mt-4 md:mx-16">
+            <div className="flex flex-col items-center xl:flex-row justify-center p-8 pt-10 ">
+                <img src={require(".//assets/photo.jpg")} alt="programming" className="xl:w-[620px] xl:h-[680px] w-72  rounded-lg xl:pr-24 "/>
+                <div className="pt-24 xl:pr-64">
+                    <section className="mb-3 ">
                         <h3 className="text-lg">Hello everyone, I am</h3>
                         <h1 className="text-5xl font-bold">Oleh Sokalskyi</h1>
                         <p className="text-mg pt-3 font-bold ">Junior/ Full stack developer</p>
-                    </section >
-                    <section >
+                    </section>
+                    <section>
                         <p>You will begin to realise why this exercise is called the Dickens Pattern (with reference to
                             the
                             ghost showing Scrooge some different futures)</p>
@@ -26,8 +26,8 @@ export const MainContext = () => {
                         <p>Some test</p>
                     </section>
                     <section className="pt-3 pl-4">
-                        {ContatsLinks.map((data) => (
-                            <LinkImage data={data} >
+                        {ContatsLinks.map((data, index) => (
+                            <LinkImage key={index} data={data}>
                                 {data.text}
                             </LinkImage>
                         ))}

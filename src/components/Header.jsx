@@ -1,28 +1,47 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 
 const navigationLinks = [
     { name: 'Home', href: '#' },
-    { name: 'Skills', href: 'skills' },
-    { name: 'Projects', href: '#' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Projects', href: '#projects' },
+    {name: 'Contact', href: '#contact' },
 
 ]
 
 export const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const show = window.scrollY > 50;
+            if (show) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        document.addEventListener('scroll', handleScroll);
+        return () => {
+            document.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
-        <div className="mx-32">
+        <div
+            className={`lg:mx-32 ${isScrolled ? 'rounded-full fixed top-1 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-gray-900 bg-opacity-25 hover:bg-gray-900' : ''}`}>
             <header className=" inset-x-0 top-0 z-50">
-                <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+                <nav className="flex items-center justify-between p-4 lg:px-8" aria-label="Global">
                     <div className="flex lg:flex-1">
                         <a href="#" className="-m-1.5 p-1.5">
-                            <span className="sr-only">Your Company</span>
+                            <span className="sr-only">Portfolio</span>
                             <img
                                 className="h-8 w-auto"
-                                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                                src={require(".//assets/icons8-portfolio-50.png")}
                                 alt=""
                             />
                         </a>
@@ -34,12 +53,12 @@ export const Header = () => {
                             onClick={() => setMobileMenuOpen(true)}
                         >
                             <span className="sr-only">Open main menu</span>
-                            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                            <Bars3Icon className="h-6 w-6" aria-hidden="true"/>
                         </button>
                     </div>
                     <div className="hidden lg:flex lg:gap-x-12">
                         {navigationLinks.map((item) => (
-                            <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+                            <a key={item.name} href={item.href} className="text-sm font-semibold leading-6  text-white">
                                 {item.name}
                             </a>
                         ))}
@@ -68,7 +87,8 @@ export const Header = () => {
                 </nav>
                 <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
                     <div className="fixed inset-0 z-50"/>
-                    <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                    <Dialog.Panel
+                        className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                         <div className="flex items-center justify-between">
                             <a href="#" className="-m-1.5 p-1.5">
                                 <span className="sr-only">Your Company</span>
@@ -84,7 +104,7 @@ export const Header = () => {
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 <span className="sr-only">Close menu</span>
-                                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                                <XMarkIcon className="h-6 w-6" aria-hidden="true"/>
                             </button>
                         </div>
                         <div className="mt-6 flow-root">
