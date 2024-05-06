@@ -15,7 +15,7 @@ export const MainContext = () => {
                 <div className="pt-24 xl:pr-64">
                     <section className="mb-3 ">
                         <h3 className="text-lg">Hello everyone, I am</h3>
-                        <h1 className="text-5xl font-bold">Oleh Sokalskyi</h1>
+                        <h1 className="text-5xl font-bold">Oleh </h1>
                         <p className="text-mg pt-3 font-bold ">Junior/ Full stack developer</p>
                     </section>
                     <section>

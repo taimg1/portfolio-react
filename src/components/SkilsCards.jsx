@@ -1,6 +1,16 @@
+import { Tilt } from 'react-tilt'
 
-
-
+const defaultOptions = {
+    reverse:        false,  // reverse the tilt direction
+    max:            60,     // max tilt rotation (degrees)
+    perspective:    1000,   // Transform perspective, the lower the more extreme the tilt gets.
+    scale:          1.1,    // 2 = 200%, 1.5 = 150%, etc..
+    speed:          1000,   // Speed of the enter/exit transition
+    transition:     true,   // Set a transition on enter/exit.
+    axis:           null,   // What axis should be disabled. Can be X or Y.
+    reset:          true,    // If the tilt effect has to be reset on exit.
+    easing:         "cubic-bezier(.03,.98,.52,.99)",    // Easing on enter/exit.
+}
 
 
 export const SkillCards = () =>{
@@ -39,7 +49,7 @@ export const SkillCards = () =>{
 
 const SkillCard = ({list, name}) => {
     return (
-        <div
+        <Tilt options={defaultOptions}
             className="block max-w-sm m-6 p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
             <h5 className="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{name}</h5>
             <ul className="pl-6">
@@ -49,6 +59,6 @@ const SkillCard = ({list, name}) => {
                     </li>
                 ))}
             </ul>
-        </div>
+        </Tilt>
     )
 }

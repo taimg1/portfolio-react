@@ -32,8 +32,7 @@ export const Header = () => {
     }, []);
 
     return (
-        <div
-            className={`lg:mx-32 ${isScrolled ? 'rounded-full fixed top-1 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-gray-900 bg-opacity-25 hover:bg-gray-900' : ''}`}>
+        <div className={`lg:mx-32 ${isScrolled ? 'rounded-full fixed top-1 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-gray-900 bg-opacity-25 hover:bg-gray-900' : ''}`}>
             <header className=" inset-x-0 top-0 z-50">
                 <nav className="flex items-center justify-between p-4 lg:px-8" aria-label="Global">
                     <div className="flex lg:flex-1">
