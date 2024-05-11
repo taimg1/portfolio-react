@@ -32,9 +32,9 @@ export const Header = () => {
     }, []);
 
     return (
-        <div className={`lg:mx-32 ${isScrolled ? 'rounded-full fixed top-1 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-gray-900 bg-opacity-25 hover:bg-gray-900' : ''}`}>
+        <div className={`mx-2 lg:mx-32 ${isScrolled ? 'rounded-full fixed top-1 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-gray-900 bg-opacity-25 hover:bg-gray-900' : ''}`}>
             <header className=" inset-x-0 top-0 z-50">
-                <nav className="flex items-center justify-between p-4 lg:px-8" aria-label="Global">
+                <nav className="flex items-center justify-between p-4 mx-2 lg:px-8" aria-label="Global">
                     <div className="flex lg:flex-1">
                         <a href="#" className="-m-1.5 p-1.5">
                             <span className="sr-only">Portfolio</span>
@@ -63,7 +63,7 @@ export const Header = () => {
                         ))}
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                        <a href="#" className="text-sm font-semibold leading-6 text-gray-900 px-2">
+                        <a href="#" className="text-lg font-semibold leading-6 text-gray-900 px-2 hover:border-gray-100">
                             <img
                                 className="h-6 w-6"
                                 src={require(".//assets/icons8-instagram-50.png")}
@@ -85,18 +85,11 @@ export const Header = () => {
                     </div>
                 </nav>
                 <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-                    <div className="fixed inset-0 z-50"/>
+                    <div className="fixed inset-0 h-80 z-50"/>
                     <Dialog.Panel
-                        className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-                        <div className="flex items-center justify-between">
-                            <a href="#" className="-m-1.5 p-1.5">
-                                <span className="sr-only">Your Company</span>
-                                <img
-                                    className="h-8 w-auto"
-                                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                                    alt=""
-                                />
-                            </a>
+                        className="fixed inset-y-0 right-0 z-50 w-80 h-80 overflow-y-scroll bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 border-b-blue-gray-400 ">
+                        <div className="flex items-center justify-end">
+
                             <button
                                 type="button"
                                 className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -109,27 +102,28 @@ export const Header = () => {
                         <div className="mt-6 flow-root">
                             <div className="-my-6 divide-y divide-gray-500/10">
                                 <div className="space-y-2 py-6">
+
                                     {navigationLinks.map((item) => (
                                         <a
                                             key={item.name}
                                             href={item.href}
-                                            className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                            className="-mx-3 block rounded-lg px-3 py-2 text-base text-right font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                         >
                                             {item.name}
                                         </a>
                                     ))}
                                 </div>
-                                <div className="py-6">
-                                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                                        <img src={require(".//assets/icons8-instagram-50.png")} alt="test"/>
-                                    </a>
-                                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                                        <img src={require(".//assets/icons8-facebook-50.png")} alt="test"/>
-                                    </a>
-                                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                                        <img src={require(".//assets/icons8-twitterx-50.png")} alt="test"/>
-                                    </a>
-                                </div>
+                                {/*<div className="py-6">*/}
+                                {/*    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">*/}
+                                {/*        <img src={require(".//assets/icons8-instagram-50.png")} alt="test"/>*/}
+                                {/*    </a>*/}
+                                {/*    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">*/}
+                                {/*        <img src={require(".//assets/icons8-facebook-50.png")} alt="test"/>*/}
+                                {/*    </a>*/}
+                                {/*    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">*/}
+                                {/*        <img src={require(".//assets/icons8-twitterx-50.png")} alt="test"/>*/}
+                                {/*    </a>*/}
+                                {/*</div>*/}
                             </div>
                         </div>
                     </Dialog.Panel>
